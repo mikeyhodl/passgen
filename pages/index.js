@@ -19,7 +19,7 @@ const Home = () => {
         {
           headers: {
             "X-RapidAPI-Key":
-              process.env.X_RapidAPI_Key,
+              process.env.NEXT_PUBLIC_ENV_VARIABLE,
             "X-RapidAPI-Host":
               "password-generator-by-api-ninjas.p.rapidapi.com",
           },
