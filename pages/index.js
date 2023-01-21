@@ -1,9 +1,41 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "@next/font/google";
+// import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
+import Link from "next/link";
+import axios from "axios";
+import React, { useState } from "react";
 
-export default function Home() {
+const Home = () => {
+  const [password, setPassword] = useState("");
+  const [length, setLength] = useState(8);
+  const [excludeNumbers, setExcludeNumbers] = useState(false);
+  const [excludeSpecialChars, setExcludeSpecialChars] = useState(false);
+
+  const generatePassword = async () => {
+    try {
+      const response = await axios.get(
+        "https://password-generator-by-api-ninjas.p.rapidapi.com/v1/passwordgenerator",
+        {
+          headers: {
+            "X-RapidAPI-Key":
+              process.env.X_RapidAPI_Key,
+            "X-RapidAPI-Host":
+              "password-generator-by-api-ninjas.p.rapidapi.com",
+          },
+          params: {
+            length,
+            exclude_numbers: excludeNumbers,
+            exclude_special_chars: excludeSpecialChars,
+          },
+        }
+      );
+
+      setPassword(response.data.random_password);
+    } catch (error) {
+      console.log(error);
+    }
+  };
   return (
     <>
       <Head>
@@ -15,9 +47,9 @@ export default function Home() {
       {/* start nav bar */}
       <div className="navbar bg-base-100">
         <div className="flex-1">
-          <a className="btn btn-ghost normal-case text-xl">
+          <Link className="btn btn-ghost normal-case text-xl" href="/">
             Password Generator
-          </a>
+          </Link>
         </div>
         <div className="flex-none gap-2">
           <div className="dropdown dropdown-end">
@@ -36,16 +68,15 @@ export default function Home() {
               className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
             >
               <li>
-                <a className="justify-between">
-                  Profile
+                <a
+                  className="justify-between"
+                  href="https://github.com/mikeyhodl/passgen"
+                  target="_blank"
+                  rel="noreferrer"
+                >
+                  Github
                   <span className="badge">New</span>
                 </a>
-              </li>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <a>Logout</a>
               </li>
             </ul>
           </div>
@@ -55,13 +86,24 @@ export default function Home() {
       <div className={styles.container}>
         {/* special char selection */}
         <h1>Exclude Special Characters</h1>
-        <select className="select select-info w-full max-w-xs">
+        {/* <select className="select select-info w-full max-w-xs">
           <option disabled defaultValue>
             Exclude Special Characters
           </option>
           <option>True</option>
           <option>False</option>
-        </select>
+        </select> */}
+        <div className="form-control">
+          <label className="cursor-pointer label">
+            <span className="label-text">Remember me</span>
+            <input
+              type="checkbox"
+              checked={excludeNumbers}
+              onChange={(e) => setExcludeNumbers(e.target.checked)}
+              className="checkbox checkbox-info"
+            />
+          </label>
+        </div>
         <br />
         <br />
         {/* Pass length */}
@@ -69,6 +111,8 @@ export default function Home() {
         <div>
           <input
             type="number"
+            value={length}
+            onChange={(e) => setLength(e.target.value)}
             placeholder="Pass length"
             className="input input-bordered input-info w-full max-w-xs"
           />
@@ -77,25 +121,40 @@ export default function Home() {
         <br />
         {/* Exclude Numbers selection */}
         <h1>Exclude Numbers</h1>
-        <select className="select select-info w-full max-w-xs">
+        {/* <select className="select select-info w-full max-w-xs">
           <option disabled defaultValue>
             Exclude Numbers
           </option>
           <option>True</option>
           <option>False</option>
-        </select>
+        </select> */}
+        <div className="form-control">
+          <label className="cursor-pointer label">
+            <span className="label-text">Remember me</span>
+            <input
+              type="checkbox"
+              className="checkbox checkbox-info"
+              checked={excludeSpecialChars}
+              onChange={(e) => setExcludeSpecialChars(e.target.checked)}
+            />
+          </label>
+        </div>
         <br />
         <br />
-        <button className="btn btn-outline btn-info">Generate</button>
+        <button className="btn btn-outline btn-info" onClick={generatePassword}>
+          Generate
+        </button>
         <br />
         <br />
         {/* password generated */}
-        <div className="mockup-code">
-          <pre data-prefix="$">
-            <code>pass</code>
-          </pre>
-        </div>
+        <textarea
+          className="textarea textarea-info"
+          placeholder="Password"
+          value={password}
+          readOnly={true}
+        ></textarea>
       </div>
     </>
   );
-}
+};
+export default Home;
