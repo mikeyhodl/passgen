@@ -1,9 +1,26 @@
 import Head from "next/head";
-// import Image from "next/image";
+import Image from "next/image";
 import { Inter } from "@next/font/google";
-// import styles from "@/styles/Home.module.css";
+import styles from "@/styles/Home.module.css";
+// import axios from "axios";
 
 const inter = Inter({ subsets: ["latin"] });
+
+// const Password = {
+//   method: "get",
+//   url: "https://password-generator-by-api-ninjas.p.rapidapi.com/v1/passwordgenerator?length=5&exclude_numbers=false&exclude_special_chars=false",
+//   headers: {
+//     "X-RapidAPI-Key": "140fd8c839msh4ed48ab14336015p1ac1e8jsn6db1d0261a19",
+//     "X-RapidAPI-Host": "password-generator-by-api-ninjas.p.rapidapi.com",
+//   },
+// };
+// axios(Password)
+//   .then((response) => {
+//     console.log(JSON.stringify(response.data.random_password));
+//   })
+//   .catch((error) => {
+//     console.log(error);
+//   });
 
 export default function Home() {
   return (
@@ -15,43 +32,91 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* start nav bar */}
-      <div className="navbar bg-base-100">
+      {/* <div className="navbar bg-base-100">
         <a className="btn btn-ghost normal-case text-xl">Password Generator</a>
+      </div> */}
+      <div className="navbar bg-base-100">
+        <div className="flex-1">
+          <a className="btn btn-ghost normal-case text-xl">Password Generator</a>
+        </div>
+        <div className="flex-none gap-2">
+          {/* <div className="form-control">
+            <input
+              type="text"
+              placeholder="Search"
+              className="input input-bordered"
+            />
+          </div> */}
+          <div className="dropdown dropdown-end">
+            <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+              <div className="w-10 rounded-full">
+                <Image src="https://placeimg.com/80/80/people" alt="people" width={80} height={80}/>
+              </div>
+            </label>
+            <ul
+              tabIndex={0}
+              className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
+            >
+              <li>
+                <a className="justify-between">
+                  Profile
+                  <span className="badge">New</span>
+                </a>
+              </li>
+              <li>
+                <a>Settings</a>
+              </li>
+              <li>
+                <a>Logout</a>
+              </li>
+            </ul>
+          </div>
+        </div>
       </div>
-      {/* special char selection */}
-      <select className="select select-info w-full max-w-xs">
-        <option disabled defaultValue>
-          Exclude Special Characters
-        </option>
-        <option>True</option>
-        <option>False</option>
-      </select>
-      {/* Pass length */}
-      <div>
-        <input
-          type="number"
-          placeholder="Pass length"
-          className="input input-bordered input-info w-full max-w-xs"
-        />
-      </div>
-      {/* Exclude Numbers selection */}
-      <select className="select select-info w-full max-w-xs">
-        <option disabled defaultValue>
-          Exclude Numbers
-        </option>
-        <option>True</option>
-        <option>False</option>
-      </select>
-      <br />
-      <br />
-      <button className="btn btn-outline btn-info">Generate</button>
-      <br />
-      <br />
-      {/* password generated */}
-      <div className="mockup-code">
-        <pre data-prefix="$">
-          <code>pass</code>
-        </pre>
+      {/* container */}
+      <div className={styles.container}>
+        {/* special char selection */}
+        <h1>Exclude Special Characters</h1>
+        <select className="select select-info w-full max-w-xs">
+          <option disabled defaultValue>
+            Exclude Special Characters
+          </option>
+          <option>True</option>
+          <option>False</option>
+        </select>
+        <br />
+        <br />
+        {/* Pass length */}
+        <h1>Password length</h1>
+        <div>
+          <input
+            type="number"
+            placeholder="Pass length"
+            className="input input-bordered input-info w-full max-w-xs"
+          />
+        </div>
+        <br />
+        <br />
+        {/* Exclude Numbers selection */}
+        <h1>Exclude Numbers</h1>
+        <select className="select select-info w-full max-w-xs">
+          <option disabled defaultValue>
+            Exclude Numbers
+          </option>
+          <option>True</option>
+          <option>False</option>
+        </select>
+        <br />
+        <br />
+        <button className="btn btn-outline btn-info">Generate</button>
+        <br />
+        <br />
+        {/* password generated */}
+        <div className="mockup-code">
+          <pre data-prefix="$">
+            <code>pass</code>
+          </pre>
+        </div>
       </div>
     </>
   );

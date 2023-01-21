@@ -3,4 +3,15 @@ const nextConfig = {
   reactStrictMode: true,
 }
 
-module.exports = nextConfig
+module.exports = {
+  images: {
+    remotePatterns: [
+      {
+        protocol: 'https',
+        hostname: 'placeimg.com',
+        port: '',
+        pathname: '/80/80/**',
+      },
+    ],
+  },
+}
