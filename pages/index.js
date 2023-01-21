@@ -2,9 +2,6 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
-// import axios from "axios";
-
-const inter = Inter({ subsets: ["latin"] });
 
 export default function Home() {
   return (
@@ -16,25 +13,22 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* start nav bar */}
-      {/* <div className="navbar bg-base-100">
-        <a className="btn btn-ghost normal-case text-xl">Password Generator</a>
-      </div> */}
       <div className="navbar bg-base-100">
         <div className="flex-1">
-          <a className="btn btn-ghost normal-case text-xl">Password Generator</a>
+          <a className="btn btn-ghost normal-case text-xl">
+            Password Generator
+          </a>
         </div>
         <div className="flex-none gap-2">
-          {/* <div className="form-control">
-            <input
-              type="text"
-              placeholder="Search"
-              className="input input-bordered"
-            />
-          </div> */}
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <Image src="https://placeimg.com/80/80/people" alt="people" width={80} height={80}/>
+                <Image
+                  src="https://placeimg.com/80/80/people"
+                  alt="people"
+                  width={80}
+                  height={80}
+                />
               </div>
             </label>
             <ul
