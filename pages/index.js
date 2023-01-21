@@ -2,25 +2,6 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
-// import axios from "axios";
-
-const inter = Inter({ subsets: ["latin"] });
-
-// const Password = {
-//   method: "get",
-//   url: "https://password-generator-by-api-ninjas.p.rapidapi.com/v1/passwordgenerator?length=5&exclude_numbers=false&exclude_special_chars=false",
-//   headers: {
-//     "X-RapidAPI-Key": "140fd8c839msh4ed48ab14336015p1ac1e8jsn6db1d0261a19",
-//     "X-RapidAPI-Host": "password-generator-by-api-ninjas.p.rapidapi.com",
-//   },
-// };
-// axios(Password)
-//   .then((response) => {
-//     console.log(JSON.stringify(response.data.random_password));
-//   })
-//   .catch((error) => {
-//     console.log(error);
-//   });
 
 export default function Home() {
   return (
@@ -32,25 +13,22 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       {/* start nav bar */}
-      {/* <div className="navbar bg-base-100">
-        <a className="btn btn-ghost normal-case text-xl">Password Generator</a>
-      </div> */}
       <div className="navbar bg-base-100">
         <div className="flex-1">
-          <a className="btn btn-ghost normal-case text-xl">Password Generator</a>
+          <a className="btn btn-ghost normal-case text-xl">
+            Password Generator
+          </a>
         </div>
         <div className="flex-none gap-2">
-          {/* <div className="form-control">
-            <input
-              type="text"
-              placeholder="Search"
-              className="input input-bordered"
-            />
-          </div> */}
           <div className="dropdown dropdown-end">
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
-                <Image src="https://placeimg.com/80/80/people" alt="people" width={80} height={80}/>
+                <Image
+                  src="https://placeimg.com/80/80/people"
+                  alt="people"
+                  width={80}
+                  height={80}
+                />
               </div>
             </label>
             <ul
