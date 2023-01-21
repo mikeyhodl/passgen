@@ -8,7 +8,7 @@ import React, { useState } from "react";
 
 const Home = () => {
   const [password, setPassword] = useState("");
-  const [length, setLength] = useState(8);
+  const [length, setLength] = useState(12);
   const [excludeNumbers, setExcludeNumbers] = useState(false);
   const [excludeSpecialChars, setExcludeSpecialChars] = useState(false);
 
