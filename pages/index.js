@@ -6,22 +6,6 @@ import styles from "@/styles/Home.module.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
-// const Password = {
-//   method: "get",
-//   url: "https://password-generator-by-api-ninjas.p.rapidapi.com/v1/passwordgenerator?length=5&exclude_numbers=false&exclude_special_chars=false",
-//   headers: {
-//     "X-RapidAPI-Key": "140fd8c839msh4ed48ab14336015p1ac1e8jsn6db1d0261a19",
-//     "X-RapidAPI-Host": "password-generator-by-api-ninjas.p.rapidapi.com",
-//   },
-// };
-// axios(Password)
-//   .then((response) => {
-//     console.log(JSON.stringify(response.data.random_password));
-//   })
-//   .catch((error) => {
-//     console.log(error);
-//   });
-
 export default function Home() {
   return (
     <>
