@@ -14,6 +14,11 @@ export default function Home() {
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
+      {/* start nav bar */}
+      <div className="navbar bg-base-100">
+        <a className="btn btn-ghost normal-case text-xl">Password Generator</a>
+      </div>
+      {/* special char selection */}
       <select className="select select-info w-full max-w-xs">
         <option disabled defaultValue>
           Exclude Special Characters
@@ -21,6 +26,7 @@ export default function Home() {
         <option>True</option>
         <option>False</option>
       </select>
+      {/* Pass length */}
       <div>
         <input
           type="number"
@@ -28,6 +34,7 @@ export default function Home() {
           className="input input-bordered input-info w-full max-w-xs"
         />
       </div>
+      {/* Exclude Numbers selection */}
       <select className="select select-info w-full max-w-xs">
         <option disabled defaultValue>
           Exclude Numbers
@@ -38,6 +45,14 @@ export default function Home() {
       <br />
       <br />
       <button className="btn btn-outline btn-info">Generate</button>
+      <br />
+      <br />
+      {/* password generated */}
+      <div className="mockup-code">
+        <pre data-prefix="$">
+          <code>pass</code>
+        </pre>
+      </div>
     </>
   );
 }
