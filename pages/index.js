@@ -1,7 +1,8 @@
 import Head from "next/head";
 import Image from "next/image";
-import { Inter } from "@next/font/google";
+// import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
+import Link from 'next/link'
 
 export default function Home() {
   return (
@@ -15,9 +16,9 @@ export default function Home() {
       {/* start nav bar */}
       <div className="navbar bg-base-100">
         <div className="flex-1">
-          <a className="btn btn-ghost normal-case text-xl">
+          <Link className="btn btn-ghost normal-case text-xl" href="/">
             Password Generator
-          </a>
+          </Link>
         </div>
         <div className="flex-none gap-2">
           <div className="dropdown dropdown-end">
@@ -36,16 +37,10 @@ export default function Home() {
               className="mt-3 p-2 shadow menu menu-compact dropdown-content bg-base-100 rounded-box w-52"
             >
               <li>
-                <a className="justify-between">
-                  Profile
+                <a className="justify-between" href="https://github.com/mikeyhodl/passgen" target="_blank" rel="noreferrer">
+                  Github
                   <span className="badge">New</span>
                 </a>
-              </li>
-              <li>
-                <a>Settings</a>
-              </li>
-              <li>
-                <a>Logout</a>
               </li>
             </ul>
           </div>
@@ -90,11 +85,10 @@ export default function Home() {
         <br />
         <br />
         {/* password generated */}
-        <div className="mockup-code">
-          <pre data-prefix="$">
-            <code>pass</code>
-          </pre>
-        </div>
+        <textarea
+          className="textarea textarea-info"
+          placeholder="Password"
+        ></textarea>
       </div>
     </>
   );
