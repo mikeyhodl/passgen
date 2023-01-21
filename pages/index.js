@@ -16,16 +16,28 @@ export default function Home() {
       </Head>
       <select className="select select-info w-full max-w-xs">
         <option disabled defaultValue>
-          Pick your favorite anime
+          Exclude Special Characters
         </option>
-        <option>One Piece</option>
-        <option>Naruto</option>
-        <option>Death Note</option>
-        <option>Attack on Titan</option>
-        <option>Bleach</option>
-        <option>Fullmetal Alchemist</option>
-        <option>Jojo&apos;s Bizarre Adventure</option>
+        <option>True</option>
+        <option>False</option>
       </select>
+      <div>
+        <input
+          type="number"
+          placeholder="Pass length"
+          className="input input-bordered input-info w-full max-w-xs"
+        />
+      </div>
+      <select className="select select-info w-full max-w-xs">
+        <option disabled defaultValue>
+          Exclude Numbers
+        </option>
+        <option>True</option>
+        <option>False</option>
+      </select>
+      <br />
+      <br />
+      <button className="btn btn-outline btn-info">Generate</button>
     </>
   );
 }
