@@ -1,13 +1,11 @@
 .container {
+  background: white;
+  max-width: 600px;
+  display: block;
+  margin: 0 auto;
+  padding: 20px;
+  resize: both;
+  border-radius: 8px;
   text-align: center;
-  background-color: rgb(54, 50, 50);
-  border: 1px solid black;
-  padding: 10px;
-  width: 30vw;
-  margin-left: 35vw;
-  margin-top: 5vh;
-  margin-bottom: auto;
-}
-.label {
-  text-align: center;
+  margin-top: 25px;
 }
