@@ -85,7 +85,7 @@ const Home = () => {
       {/* container */}
       <div className={styles.container}>
         {/* special char selection */}
-        <h1>Exclude Special Characters</h1>
+        <label>Exclude Numbers</label>
         {/* <select className="select select-info w-full max-w-xs">
           <option disabled defaultValue>
             Exclude Special Characters
@@ -93,9 +93,10 @@ const Home = () => {
           <option>True</option>
           <option>False</option>
         </select> */}
+        
         <div className="form-control">
           <label className="cursor-pointer label">
-            <span className="label-text">Remember me</span>
+            {/* <span className="label-text">Remember me</span> */}
             <input
               type="checkbox"
               checked={excludeNumbers}
@@ -107,7 +108,7 @@ const Home = () => {
         <br />
         <br />
         {/* Pass length */}
-        <h1>Password length</h1>
+        <label>Password length</label>
         <div>
           <input
             type="number"
@@ -120,7 +121,7 @@ const Home = () => {
         <br />
         <br />
         {/* Exclude Numbers selection */}
-        <h1>Exclude Numbers</h1>
+        <label>Exclude Special Characters</label>
         {/* <select className="select select-info w-full max-w-xs">
           <option disabled defaultValue>
             Exclude Numbers
@@ -130,7 +131,7 @@ const Home = () => {
         </select> */}
         <div className="form-control">
           <label className="cursor-pointer label">
-            <span className="label-text">Remember me</span>
+            {/* <span className="label-text">Remember me</span> */}
             <input
               type="checkbox"
               className="checkbox checkbox-info"
