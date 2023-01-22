@@ -8,7 +8,7 @@ import React, { useState } from "react";
 
 const Home = () => {
   const [password, setPassword] = useState("");
-  const [length, setLength] = useState(12);
+  const [length, setLength] = useState(16);
   const [excludeNumbers, setExcludeNumbers] = useState(false);
   const [excludeSpecialChars, setExcludeSpecialChars] = useState(false);
 
@@ -18,8 +18,7 @@ const Home = () => {
         "https://password-generator-by-api-ninjas.p.rapidapi.com/v1/passwordgenerator",
         {
           headers: {
-            "X-RapidAPI-Key":
-              process.env.NEXT_PUBLIC_ENV_VARIABLE,
+            "X-RapidAPI-Key": process.env.NEXT_PUBLIC_ENV_VARIABLE,
             "X-RapidAPI-Host":
               "password-generator-by-api-ninjas.p.rapidapi.com",
           },
@@ -84,22 +83,6 @@ const Home = () => {
       </div>
       {/* container */}
       <div className={styles.container}>
-        {/* special char selection */}
-        <label>Exclude Numbers</label>
-        
-        {/* <div className="form-control"> */}
-          <label className="cursor-pointer label inline-block">
-            {/* <span className="label-text">Remember me</span> */}
-            <input
-              type="checkbox"
-              checked={excludeNumbers}
-              onChange={(e) => setExcludeNumbers(e.target.checked)}
-              className="checkbox checkbox-info"
-            />
-          </label>
-        {/* </div> */}
-        <br />
-        <br />
         {/* Pass length */}
         <label>Password length</label>
         <div>
@@ -111,11 +94,22 @@ const Home = () => {
             className="input input-bordered input-info w-full max-w-xs"
           />
         </div>
-        <br />
-        <br />
+        {/* Exclude numbers */}
+        <label>Exclude Numbers</label>
+
+        {/* <div className="form-control"> */}
+        <label className="cursor-pointer label inline-block">
+          {/* <span className="label-text">Remember me</span> */}
+          <input
+            type="checkbox"
+            checked={excludeNumbers}
+            onChange={(e) => setExcludeNumbers(e.target.checked)}
+            className="checkbox checkbox-info"
+          />
+        </label>
+        {/* </div> */}
         {/* Exclude Numbers selection */}
         <label>Exclude Special Characters</label>
-        
         <div className="form-control inline-block">
           <label className="cursor-pointer label">
             {/* <span className="label-text">Remember me</span> */}
@@ -128,19 +122,27 @@ const Home = () => {
           </label>
         </div>
         <br />
-        <br />
         <button className="btn btn-outline btn-info" onClick={generatePassword}>
           Generate
         </button>
         <br />
         <br />
         {/* password generated */}
-        <textarea
-          className="textarea textarea-info"
-          placeholder="Password"
-          value={password}
-          readOnly={true}
-        ></textarea>
+        <div style={{ display: "flex", alignItems: "center" }}>
+          <textarea
+            className="textarea textarea-info"
+            placeholder="Password"
+            style={{ textAlign: "center", height: "50px" , flex: 1 }}
+            value={password}
+            readOnly={true}
+          ></textarea>
+          <button
+            className="btn btn-outline btn-info "
+            onClick={() => navigator.clipboard.writeText(password)}
+          >
+            Copy
+          </button>
+        </div>
       </div>
     </>
   );
