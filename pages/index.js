@@ -5,6 +5,7 @@ import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 import axios from "axios";
 import React, { useState } from "react";
+// import paster from "./images/clip.svg";
 
 const Home = () => {
   const [password, setPassword] = useState("");
@@ -132,7 +133,7 @@ const Home = () => {
           <textarea
             className="textarea textarea-info"
             placeholder="Password"
-            style={{ textAlign: "center", height: "50px" , flex: 1 }}
+            style={{ textAlign: "center", height: "50px", flex: 1 }}
             value={password}
             readOnly={true}
           ></textarea>
@@ -140,6 +141,7 @@ const Home = () => {
             className="btn btn-outline btn-info "
             onClick={() => navigator.clipboard.writeText(password)}
           >
+            {/* {paster} */}
             Copy
           </button>
         </div>
