@@ -91,13 +91,13 @@ const Home = () => {
             type="number"
             value={length}
             onChange={(e) => setLength(e.target.value)}
+            style={{ textAlign: "center", height: "50px", width:150}}
             placeholder="Pass length"
             className="input input-bordered input-info w-full max-w-xs"
           />
         </div>
         {/* Exclude numbers */}
         <label>Exclude Numbers</label>
-
         {/* <div className="form-control"> */}
         <label className="cursor-pointer label inline-block">
           {/* <span className="label-text">Remember me</span> */}
@@ -133,7 +133,7 @@ const Home = () => {
           <textarea
             className="textarea textarea-info"
             placeholder="Password"
-            style={{ textAlign: "center", height: "50px", flex: 1 }}
+            style={{ textAlign: "center", height: "40px", flex: 1 }}
             value={password}
             readOnly={true}
           ></textarea>
