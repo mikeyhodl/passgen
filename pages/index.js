@@ -138,7 +138,7 @@ const Home = () => {
               textAlign: "center",
               height: "40px",
               flex: 0.7,
-              marginLeft: 160,
+              marginLeft: "30%"
             }}
             value={password}
             readOnly={true}
