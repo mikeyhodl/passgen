@@ -142,7 +142,7 @@ const Home = () => {
             onClick={() => navigator.clipboard.writeText(password)}
           >
             {/* {paster} */}
-            <Image  src={copyIcon} alt="Copy icon" height={20} />
+            <Image  src={copyIcon} alt="Copy icon" height={25} />
           </button>
         </div>
       </div>
