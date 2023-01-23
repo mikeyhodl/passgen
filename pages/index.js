@@ -5,7 +5,7 @@ import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 import axios from "axios";
 import React, { useState } from "react";
-// import paster from "./images/clip.svg";
+import copyIcon from "./images/clip.svg";
 
 const Home = () => {
   const [password, setPassword] = useState("");
@@ -91,7 +91,7 @@ const Home = () => {
             type="number"
             value={length}
             onChange={(e) => setLength(e.target.value)}
-            style={{ textAlign: "center", height: "50px", width:150}}
+            style={{ textAlign: "center", height: "50px", width: 150 }}
             placeholder="Pass length"
             className="input input-bordered input-info w-full max-w-xs"
           />
@@ -142,7 +142,7 @@ const Home = () => {
             onClick={() => navigator.clipboard.writeText(password)}
           >
             {/* {paster} */}
-            Copy
+            <Image  src={copyIcon} alt="Copy icon" height={20} />
           </button>
         </div>
       </div>
