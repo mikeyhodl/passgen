@@ -1,17 +1,29 @@
 import Head from "next/head";
 import Image from "next/image";
-// import { Inter } from "@next/font/google";
 import styles from "@/styles/Home.module.css";
 import Link from "next/link";
 import axios from "axios";
 import React, { useState } from "react";
 import copyIcon from "./images/clip.svg";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 const Home = () => {
   const [password, setPassword] = useState("");
   const [length, setLength] = useState(16);
   const [excludeNumbers, setExcludeNumbers] = useState(false);
   const [excludeSpecialChars, setExcludeSpecialChars] = useState(false);
+  const notify = () =>
+    toast.success("Copied!", {
+      position: "bottom-right",
+      autoClose: 1000,
+      hideProgressBar: false,
+      closeOnClick: true,
+      pauseOnHover: true,
+      draggable: true,
+      progress: undefined,
+      theme: "colored",
+    });
 
   const generatePassword = async () => {
     try {
@@ -138,7 +150,7 @@ const Home = () => {
               textAlign: "center",
               height: "40px",
               flex: 0.7,
-              marginLeft: "30%"
+              marginLeft: "30%",
             }}
             value={password}
             readOnly={true}
@@ -148,12 +160,16 @@ const Home = () => {
             onClick={() => {
               navigator.clipboard.writeText(password);
               document.getElementById("password-textarea").select();
+              notify();
             }}
+            // onClick={notify}
             style={{ marginLeft: "10px" }}
           >
             {/* {paster} */}
             <Image src={copyIcon} alt="Copy icon" height={25} />
           </button>
+          <ToastContainer
+          />
         </div>
       </div>
     </>
