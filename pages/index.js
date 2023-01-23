@@ -131,18 +131,28 @@ const Home = () => {
         {/* password generated */}
         <div style={{ display: "flex", alignItems: "center" }}>
           <textarea
+            id="password-textarea"
             className="textarea textarea-info"
             placeholder="Password"
-            style={{ textAlign: "center", height: "40px", flex: 1 }}
+            style={{
+              textAlign: "center",
+              height: "40px",
+              flex: 0.7,
+              marginLeft: 160,
+            }}
             value={password}
             readOnly={true}
           ></textarea>
           <button
             className="btn btn-outline btn-info "
-            onClick={() => navigator.clipboard.writeText(password)}
+            onClick={() => {
+              navigator.clipboard.writeText(password);
+              document.getElementById("password-textarea").select();
+            }}
+            style={{ marginLeft: "10px" }}
           >
             {/* {paster} */}
-            <Image  src={copyIcon} alt="Copy icon" height={25} />
+            <Image src={copyIcon} alt="Copy icon" height={25} />
           </button>
         </div>
       </div>
