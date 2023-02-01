@@ -68,7 +68,7 @@ const Home = () => {
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
                 <Image
-                  src="https://placeimg.com/80/80/people"
+                  src="https://picsum.photos/80/80"
                   alt="people"
                   width={80}
                   height={80}
