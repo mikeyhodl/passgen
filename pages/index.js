@@ -5,7 +5,7 @@ import Link from "next/link";
 import axios from "axios";
 import React, { useState } from "react";
 import copyIcon from "./images/clip.svg";
-import { ToastContainer, toast } from "react-toastify";
+import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 
 const Home = () => {
@@ -14,15 +14,15 @@ const Home = () => {
   const [excludeNumbers, setExcludeNumbers] = useState(false);
   const [excludeSpecialChars, setExcludeSpecialChars] = useState(false);
   const notify = () =>
-    toast.success("Copied!", {
+    toast("Copied!", {
       position: "bottom-right",
-      autoClose: 1000,
+      autoClose: 300,
       hideProgressBar: false,
       closeOnClick: true,
       pauseOnHover: true,
       draggable: true,
       progress: undefined,
-      theme: "colored",
+      theme: "light",
     });
 
   const generatePassword = async () => {
@@ -169,6 +169,18 @@ const Home = () => {
             <Image src={copyIcon} alt="Copy icon" height={25} />
           </button>
           <ToastContainer
+            position="bottom-right"
+            autoClose={10}
+            limit={1}
+            transition={Zoom}
+            hideProgressBar={false}
+            newestOnTop={false}
+            closeOnClick
+            rtl={false}
+            pauseOnFocusLoss
+            draggable
+            pauseOnHover
+            theme="light"
           />
         </div>
       </div>
