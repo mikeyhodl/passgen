@@ -15,15 +15,15 @@ export default function Home() {
   const [excludeNumbers, setExcludeNumbers] = useState(false);
   const [excludeSpecialChars, setExcludeSpecialChars] = useState(false);
   const notify = () =>
-    toast("Copied!", {
+    toast.success("Copied!", {
       position: "bottom-right",
-      autoClose: 300,
+      autoClose: 50,
       hideProgressBar: false,
-      closeOnClick: true,
-      pauseOnHover: true,
-      draggable: true,
+      closeOnClick: false,
+      pauseOnHover: false,
+      draggable: false,
       progress: undefined,
-      theme: "light",
+      theme: "colored",
     });
 
   const generatePassword = async () => {
@@ -132,9 +132,7 @@ export default function Home() {
               </button>
               <ToastContainer
                 position="bottom-right"
-                autoClose={10}
-                limit={1}
-                transition={Zoom}
+                autoClose={50}
                 hideProgressBar={false}
                 newestOnTop={false}
                 closeOnClick
@@ -142,7 +140,7 @@ export default function Home() {
                 pauseOnFocusLoss
                 draggable
                 pauseOnHover
-                theme="light"
+                theme="colored"
               />
             </div>
           </div>
