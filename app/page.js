@@ -6,7 +6,7 @@ import React, { useState } from "react";
 import copyIcon from "./images/copy.svg";
 import { ToastContainer, toast, Zoom } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-import Header from "./parts/header";
+// import Header from "./parts/header";
 // import SEO from "./parts/seo";
 
 export default function Home() {
@@ -53,10 +53,13 @@ export default function Home() {
   return (
     <>
       {/* <SEO /> */}
-      <Header />
+      {/* <Header /> */}
 
       {/* container  */}
-      <div>
+      <div className="hero min-h-screen" data-theme="black">
+        <div className="hero-content text-center">
+          
+        <div>
         {/* Pass length */}
         <label>Password length</label>
         <div>
@@ -81,6 +84,7 @@ export default function Home() {
             className="checkbox checkbox-info"
           />
         </label>
+        <br/>
         {/* </div> */}
         {/* Exclude Numbers selection */}
         <label>Exclude Special Characters</label>
@@ -143,6 +147,8 @@ export default function Home() {
             pauseOnHover
             theme="light"
           />
+        </div>
+      </div>
         </div>
       </div>
     </>
