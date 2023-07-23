@@ -17,7 +17,7 @@ export default function Home() {
             <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
               <div className="w-10 rounded-full">
                 <Image
-                  src="https://picsum.photos/80/80"
+                  src="https://picsum.photos/200"
                   alt="people"
                   width={80}
                   height={80}

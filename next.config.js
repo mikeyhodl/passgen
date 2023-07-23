@@ -8,7 +8,7 @@ module.exports = {
           protocol: 'https',
           hostname: 'picsum.photos',
           port: '',
-          pathname: '/80/80/**',
+          pathname: '/200**',
         },
       ],
     },

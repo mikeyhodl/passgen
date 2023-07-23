@@ -56,7 +56,7 @@ export default function Home() {
       <Header />
 
       {/* container  */}
-      <div className="hero min-h-screen">
+      <div className="hero">
         <div className="hero-content text-center">
           <div>
             {/* Pass length */}
